@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <meta charset = 'UTF-8'>
+        <title></title>
+    </head>
+    <body>
+        <form action = "http://localhost:8000/test_update" method = "POST">    
+            {% csrf_token %} <!--POST 요청의 경우에는 보안상 서버에 치명적인 영향을 끼칠수가 있어서, 장고에서는 csrf 토큰을 사용한다. -->
+            ID : <input type = "text" name = "my_id"><br><br>
+            이름 : <input type = "text" name = "my_name"><br><br>
+            이메일 : <input type = "text" name = "my_email"><br><br>
+            패스워드 : <input type = "text" name = "my_password"><br><br>
+            <input type = "submit" value = "수정하기" >
+        </form>
+     </body>
+</html>
