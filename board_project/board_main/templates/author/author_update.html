@@ -1,11 +1,19 @@
 {% extends 'home.html' %}
 
 {% block content %}
+<h1>회원수정</h1>
 <form method = "POST">    
     {% csrf_token %} <!--POST 요청의 경우에는 보안상 서버에 치명적인 영향을 끼칠수가 있어서, 장고에서는 csrf 토큰을 사용한다. -->
-    이름 : <input type = "text" name = "my_name" value = "{{author.name}}"><br><br>
-    이메일 : <input type = "text" name = "my_email" value = "{{author.email}}"><br><br>
-    패스워드 : <input type = "text" name = "my_password" value = "{{author.password}}"><br><br>
-    <input type = "submit" value = "수정하기" >
+    <div class = "form-group">
+        이름<input type = "text"  class = "form-control" name = "my_name" value = "{{author.name}}">
+    </div>
+    <div class = "form-group">
+        E-mail<input type = "text" class = "form-control" name = "my_email" value = "{{author.email}}">
+    </div>
+    <div class = "form-group">
+        Password<input type = "text" class = "form-control" name = "my_password" value = "{{author.password}}">
+    </div>
+    <input type = "submit" value = "수정하기" class="btn btn-primary">
+    <a href = "/author/{{author.id}}" class = "btn btn-secondary">수정취소</a>
 </form>
 {% endblock %}
